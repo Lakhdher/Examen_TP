@@ -17,4 +17,5 @@
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
+/public/node_modules
 ###< phpunit/phpunit ###
