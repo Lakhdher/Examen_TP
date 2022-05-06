@@ -1,0 +1,40 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Affiche{% endblock %}
+
+{% block body %}
+<a href="{{path("ajout")}}">Ajouter un étudiant</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">Firstname</th>
+          <th scope="col">Name</th>
+          <th scope="col">Section</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+<tbody>
+{% for personne in etudiants %}
+
+    <tr>
+      <td scope="row">{{personne.Nom}}</th>
+      <td>{{personne.Prenom}}</td>
+      <td>
+        {% if personne.Section %}
+        {{personne.Section.Designation}}
+        {% else %}
+        <p>Etudiant non encore affecté à une section</p>
+
+        {% endif %}
+      </td>
+      <td>
+          <a href="{{path("ajout",{id:personne.id})}}">Edit</a>
+          <a href="{{path("delete")}}">Delete</a>
+
+      </td>
+    </tr>
+
+{% endfor %}
+</table>
+
+{% endblock %}
